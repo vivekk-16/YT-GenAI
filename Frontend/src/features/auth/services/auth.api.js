@@ -44,15 +44,10 @@ export async function login({email, password}){
     }
 }
 
-export async function logout({email, password}){
+export async function logout(){
 
     try{
-        const response = await api.post('/api/auth/logout',
-            {
-                email,
-                password
-            },
-        )
+        const response = await api.get('/api/auth/logout');
 
         return response.data;
 
