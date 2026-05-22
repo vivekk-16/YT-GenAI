@@ -47,7 +47,7 @@ const technicalQuestionSchema = new mongoose.Schema({
    _id:false
 })
 
-const beahvioralQuestionSchema = new mongoose.Schema({
+const behavioralQuestionSchema = new mongoose.Schema({
    question:{
       type:String,
       required:[true,"Behavioral question is required"]
@@ -64,7 +64,7 @@ const beahvioralQuestionSchema = new mongoose.Schema({
    _id:false
 })
 
-const skillsGapSchema= new mongoose.Schema({
+const skillGapSchema= new mongoose.Schema({
    skill:{
       type:String,
       required:[true,"Skill is required"]
@@ -109,13 +109,17 @@ const interviewReportSchema = new mongoose.Schema({
       min:0,
       max:100
    },
-   technicalQuestion:[technicalQuestionSchema],
-   beahvioralQuestion: [beahvioralQuestionSchema],
-   skillsGap: [skillsGapSchema],
+   technicalQuestions:[technicalQuestionSchema],
+   behavioralQuestions: [behavioralQuestionSchema],
+   skillGaps: [skillGapSchema],
    preparationPlan : [preparationPlanSchema],
    user : {
       type: mongoose.Schema.Types.ObjectId,
       ref: "users"
+   },
+   title:{
+      type:String,
+      required:[true,"Job title is required"]
    }
 },{
    timestamps:true
